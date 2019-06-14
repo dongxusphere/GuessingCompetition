@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">天气竞猜</string>
+    <string name="title_home">天气</string>
+    <string name="title_dashboard">竞猜</string>
+    <string name="title_game">游戏</string>
+    <string name="title_notifications">我</string>
+</resources>
