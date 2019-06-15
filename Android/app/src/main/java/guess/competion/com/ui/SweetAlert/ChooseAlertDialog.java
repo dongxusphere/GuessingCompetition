@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import guess.competion.com.R;
 import guess.competion.data.LocalData;
@@ -76,7 +77,8 @@ private int count = 0;
         weather_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                ChooseAlertDialog.this.dismiss();
+                new WeatherCardDialog(getContext()).show();
             }
         });
 
@@ -85,6 +87,7 @@ private int count = 0;
             public void onClick(View v) {
                 dismiss();
                 LocalData.getInstance().delTotalCount(count);
+                Toast.makeText(getContext(), "竞猜成功", Toast.LENGTH_SHORT).show();
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
