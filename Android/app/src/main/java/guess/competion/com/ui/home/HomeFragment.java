@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import guess.competion.com.FullVideoActivity;
 import guess.competion.com.R;
+import guess.competion.com.ScrollingActivity;
 import guess.competion.data.DeviceTool;
 
 public class HomeFragment extends Fragment {
@@ -45,6 +46,13 @@ public class HomeFragment extends Fragment {
         int  height3 = (int) ((967f/691f)*width);
         LinearLayout.LayoutParams l3 = new LinearLayout.LayoutParams(width,height3);
         iv3.setLayoutParams(l3);
+
+        iv3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ScrollingActivity.class));
+            }
+        });
 
         homeViewModel.getText().observe(this, new Observer<String>() {
             @Override

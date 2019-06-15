@@ -3,13 +3,14 @@ package guess.competion.com;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
+import guess.competion.com.ui.SweetAlert.SweetAlertDialog;
 import guess.competion.com.videoplayer.AbsAdVideoPlayer;
 import guess.competion.com.videoplayer.AdSplashVideoPlayer;
 import guess.competion.com.videoplayer.AdTextureVideoPlayer;
@@ -60,6 +61,30 @@ public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVi
 
     @Override
     public void onCompletion() {
+        Log.v("zdxvideo"," 视频播放完成 ");
+
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("恭喜你获得10积分")
+                .setContentText("")
+                .setCancelText("返回竞猜")
+                .setConfirmText("再看一次")
+                .showCancelButton(true)
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                        VideoData videoData = new VideoData();
+                        adSplashVideoPlayer.startPlay(videoData);
+                    }
+                })
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                        finish();
+                    }
+                })
+                .show();
 
     }
 
