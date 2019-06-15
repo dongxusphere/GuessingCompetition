@@ -38,13 +38,13 @@ private int count = 0;
         title = (TextView) findViewById(R.id.title);
         desc = (TextView) findViewById(R.id.desc);
         ok = (TextView) findViewById(R.id.ok);
-        tv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_yellow));
+        tv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
         cancel = (TextView) findViewById(R.id.cancel);
         weather_card  =(TextView) findViewById(R.id.weather_card);
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_yellow));
+                tv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 tv2.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 tv3.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已投入20墨币");
@@ -55,7 +55,7 @@ private int count = 0;
         tv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv2.setBackground(getContext().getDrawable(R.drawable.corner_bg_yellow));
+                tv2.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 tv1.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 tv3.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已投入50墨币");
@@ -66,7 +66,7 @@ private int count = 0;
         tv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv3.setBackground(getContext().getDrawable(R.drawable.corner_bg_yellow));
+                tv3.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 tv2.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 tv1.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已投入100墨币");

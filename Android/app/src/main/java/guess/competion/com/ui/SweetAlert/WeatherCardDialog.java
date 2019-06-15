@@ -39,13 +39,13 @@ public class WeatherCardDialog extends Dialog {
         title = (TextView) findViewById(R.id.title);
         desc = (TextView) findViewById(R.id.desc);
         ok = (TextView) findViewById(R.id.ok);
-        iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_yellow));
+        iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
         cancel = (TextView) findViewById(R.id.cancel);
         weather_card  =(TextView) findViewById(R.id.weather_card);
         iv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_yellow));
+                iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已选择晴天卡");
@@ -56,7 +56,7 @@ public class WeatherCardDialog extends Dialog {
         iv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg_yellow));
+                iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已选择雨天卡");
@@ -67,7 +67,7 @@ public class WeatherCardDialog extends Dialog {
         iv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg_yellow));
+                iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已选择多云卡");

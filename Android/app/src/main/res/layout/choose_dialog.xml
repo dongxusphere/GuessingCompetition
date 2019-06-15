@@ -85,7 +85,7 @@
         <Button
             android:id="@+id/cancel"
             style="@style/dialog_blue_button"
-            android:background="@drawable/corner_bg_pink"
+            android:background="@drawable/corner_bg_gray"
             android:layout_marginRight="10dp"
             android:visibility="visible"
             android:text="取消" />

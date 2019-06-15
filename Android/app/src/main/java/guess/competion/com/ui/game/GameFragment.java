@@ -1,5 +1,6 @@
 package guess.competion.com.ui.game;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import guess.competion.com.FullVideoActivity;
 import guess.competion.com.R;
 import guess.competion.data.DeviceTool;
 
@@ -35,6 +37,12 @@ public class GameFragment extends Fragment {
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(width,height1);
         l1.setMargins(0,0,0,DeviceTool.dp2px(getContext(),60));
         iv1.setLayoutParams(l1);
+        iv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), FullVideoActivity.class));
+            }
+        });
         return root;
     }
 }
