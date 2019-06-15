@@ -14,6 +14,7 @@ import guess.competion.com.ui.SweetAlert.SweetAlertDialog;
 import guess.competion.com.videoplayer.AbsAdVideoPlayer;
 import guess.competion.com.videoplayer.AdSplashVideoPlayer;
 import guess.competion.com.videoplayer.AdTextureVideoPlayer;
+import guess.competion.data.LocalData;
 import guess.competion.data.VideoData;
 
 
@@ -25,6 +26,7 @@ import guess.competion.data.VideoData;
  */
 public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVideoStatListener {
     AdSplashVideoPlayer adSplashVideoPlayer;
+    VideoData videoData = new VideoData();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -45,7 +47,7 @@ public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVi
         adSplashVideoPlayer.setOnVideoStatListener(this);
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
         relativeLayout.addView(adSplashVideoPlayer.getView(), lp);
-        VideoData videoData = new VideoData();
+
         adSplashVideoPlayer.startPlay(videoData);
     }
 
@@ -61,7 +63,8 @@ public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVi
 
     @Override
     public void onCompletion() {
-        Log.v("zdxvideo"," 视频播放完成 ");
+        Log.v("zdxvideo", " 视频播放完成 ");
+        LocalData.getInstance().addTotalcount(10);
 
         new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                 .setTitleText("恭喜你获得10积分")
@@ -73,15 +76,15 @@ public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVi
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
                         sDialog.dismissWithAnimation();
-                        VideoData videoData = new VideoData();
-                        adSplashVideoPlayer.startPlay(videoData);
+                        finish();
                     }
                 })
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
                         sDialog.dismissWithAnimation();
-                        finish();
+                        VideoData videoData = new VideoData();
+                        adSplashVideoPlayer.startPlay(videoData);
                     }
                 })
                 .show();

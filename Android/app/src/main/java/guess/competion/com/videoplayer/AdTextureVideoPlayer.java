@@ -56,6 +56,7 @@ public class AdTextureVideoPlayer extends AdSplashVideoPlayer implements Texture
                 onVideoStatListener.onDataError();
             }
         }else if(onVideoStatListener!=null){
+            Log.d("sea","sea onDataError");
             onVideoStatListener.onDataError();
         }
     }

@@ -92,6 +92,7 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="#000000"/>
                 <TextView
+                    android:id="@+id/count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="66"
@@ -162,6 +163,7 @@
                         android:src="@drawable/ic_thumb_up_black_24dp"/>
 
                     <TextView
+                        android:id="@+id/choose_left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="晴天"
@@ -179,6 +181,7 @@
                         android:layout_alignParentLeft="true"
                         />
                     <TextView
+                        android:id="@+id/choose_right"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="阴天"

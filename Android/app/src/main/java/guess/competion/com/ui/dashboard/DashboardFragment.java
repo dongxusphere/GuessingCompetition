@@ -14,12 +14,18 @@ import androidx.lifecycle.ViewModelProviders;
 
 import guess.competion.com.FullVideoActivity;
 import guess.competion.com.R;
+import guess.competion.com.ui.SweetAlert.ChooseAlertDialog;
+import guess.competion.com.ui.SweetAlert.SweetAlertDialog;
+import guess.competion.data.LocalData;
+import guess.competion.data.VideoData;
 
 public class DashboardFragment extends Fragment {
     private ContentLoadingProgressBar ProgressBar;
 
     private DashboardViewModel dashboardViewModel;
     private TextView tv_get_weather_card;
+
+    private TextView chooseLeft,chooseRight,count;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +44,31 @@ public class DashboardFragment extends Fragment {
 //        ProgressBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(getContext(),R.color.yellow), PorterDuff.Mode.MULTIPLY);
 //        ProgressBar.setProgress(30);
 
+        chooseLeft = (TextView) root.findViewById(R.id.choose_left);
+        chooseRight =(TextView) root.findViewById(R.id.choose_right);
+        count =(TextView)root.findViewById(R.id.count);
+        count.setText(LocalData.getInstance().getTotalcount()+"");
+        chooseLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new ChooseAlertDialog(getContext()).setTitle("您已选择 晴天 ，请投墨币").show();
+            }
+        });
+        chooseRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new ChooseAlertDialog(getContext()).setTitle("您已选择 阴天 ，请投墨币").show();
+            }
+        });
+
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(count!=null){
+            count.setText(LocalData.getInstance().getTotalcount()+"");
+        }
     }
 }
