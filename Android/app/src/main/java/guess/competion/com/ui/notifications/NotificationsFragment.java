@@ -30,7 +30,7 @@ public class NotificationsFragment extends Fragment {
                 ViewModelProviders.of(this).get(NotificationsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
         iv1 = (ImageView) root.findViewById(R.id.iv1);
-        iv2 = (ImageView) root.findViewById(R.id.iv2);
+//        iv2 = (ImageView) root.findViewById(R.id.iv2);
         int width = DeviceTool.getScreenWidth(getContext())-DeviceTool.dp2px(getContext(),20);
         int  height1 = (int) ((308f/686f)*width);
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(width,height1);
@@ -43,14 +43,6 @@ public class NotificationsFragment extends Fragment {
                 startActivity(new Intent(getContext(), CardsListActivity.class));
             }
         });
-//        iv1.setLayoutParams();
-//        final TextView textView = root.findViewById(R.id.text_notifications);
-//        notificationsViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
         return root;
     }
 }

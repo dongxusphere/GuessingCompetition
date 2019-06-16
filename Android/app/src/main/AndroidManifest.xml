@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CardsListActivity"></activity>
+        <activity android:name=".CardsListActivity" />
         <activity
             android:name=".ScrollingActivity"
             android:label="@string/title_activity_scrolling"
@@ -29,8 +29,8 @@
         </activity>
         <activity
             android:name=".FullVideoActivity"
-            android:launchMode="singleTask"
-            android:hardwareAccelerated="true" />
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask" />
         <activity android:name=".CardsListActivity" />
     </application>
 

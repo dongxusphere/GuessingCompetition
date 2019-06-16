@@ -15,7 +15,7 @@ public class CardsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cards_list);
         iv1= (ImageView)findViewById(R.id.iv1);
-        int width = DeviceTool.getScreenWidth(this);
+        int width = DeviceTool.getScreenWidth(this)-DeviceTool.dp2px(this,40);
         int  height1 = (int) ((1123f/675f)*width);
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(width,height1);
 //        l1.setMargins(0,0,0,DeviceTool.dp2px(getContext(),60));
