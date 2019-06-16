@@ -206,33 +206,43 @@
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp">
 <!--                    android:background="#fdb52f"-->
-                    <androidx.core.widget.ContentLoadingProgressBar
-                        android:id="@+id/ProgressBar"
+                    <LinearLayout
+                        android:id="@+id/line"
                         android:layout_width="match_parent"
                         android:layout_height="10dp"
-                        android:background="@color/colorPrimaryDark"
-                        android:indeterminate="false"
-                        android:indeterminateOnly="false"
-                        android:max="100"
-                        android:progress="30"
-                        android:progressDrawable="@color/yellow" />
+                        android:padding="2dp"
+                        android:background="@color/yellow"
+                        android:orientation="horizontal">
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/yellow"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="#ffffff"/>
+                    </LinearLayout>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/ProgressBar"
+                        android:layout_below="@+id/line"
                         android:layout_alignParentLeft="true"
-                        android:textColor="#fdb52f"
+                        android:textColor="@color/yellow"
                         android:text="30%晴天"
+                        android:layout_marginTop="5dp"
                         android:textSize="20dp"/>
 
                     <TextView
                         android:id="@+id/yintian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/ProgressBar"
+                        android:layout_below="@+id/line"
                         android:layout_alignParentRight="true"
-                        android:textColor="#fdb52f"
+                        android:textColor="@color/yellow"
                         android:text="70%阴天"
+                        android:layout_marginTop="5dp"
                         android:textSize="20dp"/>
 
                     <TextView

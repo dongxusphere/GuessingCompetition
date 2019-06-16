@@ -80,11 +80,12 @@ public class WeatherCardDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 dismiss();
+                LocalData.getInstance().delTotalCount(1);
                 Toast.makeText(getContext(), "竞猜成功", Toast.LENGTH_SHORT).show();
                 if (iOnDialogClick != null){
                     iOnDialogClick.onOkClick();
                 }
-//                LocalData.getInstance().delTotalCount(count);
+//
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {

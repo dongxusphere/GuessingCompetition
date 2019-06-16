@@ -22,8 +22,6 @@ import guess.competion.data.LocalData;
 import guess.competion.data.VideoData;
 
 public class DashboardFragment extends Fragment implements WeatherCardDialog.IOnDialogClick{
-    private ContentLoadingProgressBar ProgressBar;
-
     private DashboardViewModel dashboardViewModel;
     private TextView tv_get_weather_card;
 
@@ -41,10 +39,6 @@ public class DashboardFragment extends Fragment implements WeatherCardDialog.IOn
                 startActivity(new Intent(getContext(), FullVideoActivity.class));
             }
         });
-        ProgressBar = (ContentLoadingProgressBar) root.findViewById(R.id.ProgressBar);
-        ProgressBar.setProgress(30);
-//        ProgressBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(getContext(),R.color.yellow), PorterDuff.Mode.MULTIPLY);
-//        ProgressBar.setProgress(30);
 
         chooseLeft = (TextView) root.findViewById(R.id.choose_left);
         chooseRight =(TextView) root.findViewById(R.id.choose_right);
@@ -57,7 +51,7 @@ public class DashboardFragment extends Fragment implements WeatherCardDialog.IOn
                     Toast.makeText(getContext(),"您还没有天气卡，不能参加预测",Toast.LENGTH_LONG).show();
                     return;
                 }
-                new WeatherCardDialog(getContext()).show();
+                new WeatherCardDialog(getContext()).setOnDialogClick(DashboardFragment.this).show();
             }
         });
         chooseRight.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +61,7 @@ public class DashboardFragment extends Fragment implements WeatherCardDialog.IOn
                     Toast.makeText(getContext(),"您还没有天气卡，不能参加预测",Toast.LENGTH_LONG).show();
                     return;
                 }
-                new WeatherCardDialog(getContext()).show();
+                new WeatherCardDialog(getContext()).setOnDialogClick(DashboardFragment.this).show();
             }
         });
 
