@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.widget.ContentLoadingProgressBar;
@@ -16,10 +17,11 @@ import guess.competion.com.FullVideoActivity;
 import guess.competion.com.R;
 import guess.competion.com.ui.SweetAlert.ChooseAlertDialog;
 import guess.competion.com.ui.SweetAlert.SweetAlertDialog;
+import guess.competion.com.ui.SweetAlert.WeatherCardDialog;
 import guess.competion.data.LocalData;
 import guess.competion.data.VideoData;
 
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements WeatherCardDialog.IOnDialogClick{
     private ContentLoadingProgressBar ProgressBar;
 
     private DashboardViewModel dashboardViewModel;
@@ -51,13 +53,21 @@ public class DashboardFragment extends Fragment {
         chooseLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new ChooseAlertDialog(getContext()).setTitle("您已选择 晴天 ，请投墨币").show();
+                if(LocalData.getInstance().getTotalcount()<=0){
+                    Toast.makeText(getContext(),"您还没有天气卡，不能参加预测",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                new WeatherCardDialog(getContext()).show();
             }
         });
         chooseRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new ChooseAlertDialog(getContext()).setTitle("您已选择 阴天 ，请投墨币").show();
+                if(LocalData.getInstance().getTotalcount()<=0){
+                    Toast.makeText(getContext(),"您还没有天气卡，不能参加预测",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                new WeatherCardDialog(getContext()).show();
             }
         });
 
@@ -67,6 +77,20 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        if(count!=null){
+            count.setText(LocalData.getInstance().getTotalcount()+"");
+        }
+    }
+
+    @Override
+    public void onCancelClick() {
+        if(count!=null){
+            count.setText(LocalData.getInstance().getTotalcount()+"");
+        }
+    }
+
+    @Override
+    public void onOkClick() {
         if(count!=null){
             count.setText(LocalData.getInstance().getTotalcount()+"");
         }

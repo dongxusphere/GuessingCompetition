@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import guess.competion.com.R;
+import guess.competion.data.LocalData;
 
 
 /**
@@ -18,11 +19,10 @@ import guess.competion.com.R;
  * @Date: 2019-06-15 16:56
  */
 public class WeatherCardDialog extends Dialog {
-    private TextView title,desc,weather_card,ok,cancel;
-    private ImageView iv1,iv2,iv3;
-    private int count = 0;
+    private TextView title, desc, weather_card, ok, cancel;
+    private ImageView iv1, iv2, iv3;
 
-    public WeatherCardDialog(Context context){
+    public WeatherCardDialog(Context context) {
         super(context, R.style.alert_dialog);
         setCancelable(true);
         setCanceledOnTouchOutside(false);
@@ -41,15 +41,15 @@ public class WeatherCardDialog extends Dialog {
         ok = (TextView) findViewById(R.id.ok);
         iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
         cancel = (TextView) findViewById(R.id.cancel);
-        weather_card  =(TextView) findViewById(R.id.weather_card);
+        weather_card = (TextView) findViewById(R.id.weather_card);
         iv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg));
-                desc.setText("已选择晴天卡");
-                count = 20;
+                desc.setText("已选择晴天卡 x1");
+                LocalData.getInstance().delTotalCount(1);
 
             }
         });
@@ -59,8 +59,8 @@ public class WeatherCardDialog extends Dialog {
                 iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg));
-                desc.setText("已选择雨天卡");
-                count = 50;
+                desc.setText("已选择雨天卡 x1");
+                LocalData.getInstance().delTotalCount(1);
 
             }
         });
@@ -70,8 +70,8 @@ public class WeatherCardDialog extends Dialog {
                 iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg_pink));
                 iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg));
-                desc.setText("已选择多云卡");
-                count = 100;
+                desc.setText("已选择多云卡 x1");
+                LocalData.getInstance().delTotalCount(1);
 
             }
         });
@@ -81,6 +81,9 @@ public class WeatherCardDialog extends Dialog {
             public void onClick(View v) {
                 dismiss();
                 Toast.makeText(getContext(), "竞猜成功", Toast.LENGTH_SHORT).show();
+                if (iOnDialogClick != null){
+                    iOnDialogClick.onOkClick();
+                }
 //                LocalData.getInstance().delTotalCount(count);
             }
         });
@@ -88,10 +91,26 @@ public class WeatherCardDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 dismiss();
+                if (iOnDialogClick != null){
+                    iOnDialogClick.onCancelClick();
+                }
 //                LocalData.getInstance().addTotalcount(count);
             }
         });
 
+    }
+
+    public WeatherCardDialog setOnDialogClick(IOnDialogClick iOnDialogClick) {
+        this.iOnDialogClick = iOnDialogClick;
+        return this;
+    }
+
+    private IOnDialogClick iOnDialogClick;
+
+    public interface IOnDialogClick {
+        void onOkClick();
+
+        void onCancelClick();
     }
 
 }

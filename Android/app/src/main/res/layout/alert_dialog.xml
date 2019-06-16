@@ -86,17 +86,17 @@
         android:layout_marginTop="5dp"
         android:visibility="gone">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/warning_circle" />
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/ic_wb_sunny_yellow_30dp" />-->
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/warning_sigh"
-            android:scaleType="center" />
+            android:src="@drawable/ic_wb_sunny_yellow_30dp"
+            android:scaleType="centerCrop" />
     </FrameLayout>
 
 <!--    <FrameLayout-->

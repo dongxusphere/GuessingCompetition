@@ -1,6 +1,7 @@
 package guess.competion.com;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +28,7 @@ import guess.competion.data.VideoData;
 public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVideoStatListener {
     AdSplashVideoPlayer adSplashVideoPlayer;
     VideoData videoData = new VideoData();
+    Context context;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -39,6 +41,7 @@ public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVi
             getWindow().getDecorView().setSystemUiVisibility(option);
         }
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.activity_full_video);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.root_view);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
@@ -64,11 +67,12 @@ public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVi
     @Override
     public void onCompletion() {
         Log.v("zdxvideo", " 视频播放完成 ");
-        LocalData.getInstance().addTotalcount(10);
+        LocalData.getInstance().addTotalcount(1);
 
         new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("恭喜你获得10积分")
+                .setTitleText("恭喜你获得1张晴天卡")
                 .setContentText("")
+                .setCustomImage(R.drawable.ic_wb_sunny_yellow_30dp)
                 .setCancelText("返回竞猜")
                 .setConfirmText("再看一次")
                 .showCancelButton(true)
@@ -83,11 +87,9 @@ public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVi
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
                         sDialog.dismissWithAnimation();
-                        VideoData videoData = new VideoData();
-                        adSplashVideoPlayer.startPlay(videoData);
+                        ((AdTextureVideoPlayer) adSplashVideoPlayer).rePlay();
                     }
-                })
-                .show();
+                }).show();
 
     }
 
@@ -99,6 +101,14 @@ public class FullVideoActivity extends Activity implements AbsAdVideoPlayer.OnVi
     @Override
     public void onDataError() {
 
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        if(adSplashVideoPlayer!=null){
+            adSplashVideoPlayer.stop();
+        }
     }
 }
 

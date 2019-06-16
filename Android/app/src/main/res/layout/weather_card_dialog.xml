@@ -18,7 +18,7 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:singleLine="true"
-        android:text="已投入20墨币" />
+        android:text="已投入晴天卡 x1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,33 +28,31 @@
         <ImageView
             android:id="@+id/tv1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:padding="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/qingtian"
-            android:gravity="center"
+            android:padding="5dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_wb_sunny_yellow_30dp"
             android:layout_margin="10dp"
             />
         <ImageView
             android:id="@+id/tv2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:scaleType="centerCrop"
-            android:gravity="center"
-            android:src="@drawable/yutian"
-            android:padding="10dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/ic_flash_on_black_30dp"
+            android:padding="5dp"
             android:layout_margin="10dp"/>
         <ImageView
             android:id="@+id/tv3"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:scaleType="centerCrop"
-            android:src="@drawable/yintian"
-            android:padding="10dp"
+            android:scaleType="fitStart"
+            android:padding="5dp"
+            android:src="@drawable/ic_wb_cloudy_blue_30dp"
             android:layout_margin="10dp"/>
 
     </LinearLayout>
@@ -128,6 +126,7 @@
         android:textSize="20dp"
         android:textColor="@color/yellow"
         android:gravity="center"
+        android:visibility="gone"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"/>
 </LinearLayout>

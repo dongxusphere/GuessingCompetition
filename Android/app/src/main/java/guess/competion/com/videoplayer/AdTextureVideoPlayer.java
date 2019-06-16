@@ -123,8 +123,11 @@ public class AdTextureVideoPlayer extends AdSplashVideoPlayer implements Texture
     @Override
     public void onCompletion(MediaPlayer mp) {
         Log.i("AdTextureVideoPlayer", "sea-AdTextureVideoPlayer-onCompletion");
-        if(onVideoStatListener!=null){
-            onVideoStatListener.onCompletion();
+        try {
+            if (onVideoStatListener != null) {
+                onVideoStatListener.onCompletion();
+            }
+        }catch (Exception e){
         }
     }
 
@@ -148,7 +151,7 @@ public class AdTextureVideoPlayer extends AdSplashVideoPlayer implements Texture
         return true;
     }
 
-    private void preparedPlay(){
+    public void preparedPlay(){
         if(mSurface!=null&&mSurface.isValid()&&!isInited&&mAdSplash!=null&&isFileExist){
             isInited = true;
             try {
@@ -170,6 +173,25 @@ public class AdTextureVideoPlayer extends AdSplashVideoPlayer implements Texture
                     onVideoStatListener.onError(false);
                 }
             }
+        }
+    }
+
+    public  void rePlay(){
+        try {
+            if(mMediaPlayer!=null){
+                mMediaPlayer.stop();
+                mMediaPlayer.reset();
+                mMediaPlayer.setDataSource(mAdSplash.localPath);
+                mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                mMediaPlayer.setOnCompletionListener(this);
+                mMediaPlayer.setOnPreparedListener(this);
+                mMediaPlayer.setOnErrorListener(this);
+                mMediaPlayer.prepare();
+                mMediaPlayer.start();
+//                mMediaPlayer.prepareAsync();
+            }
+        }catch (Exception e){
+
         }
     }
 

@@ -25,12 +25,12 @@ public abstract class AdSplashVideoPlayer extends AbsAdVideoPlayer<VideoData> {
 
     public AdSplashVideoPlayer(Context context) {
         super(context);
-        try {
-            messagedigest = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e) {
-            Log.d("SplashViewCreater","sea SplashViewCreater初始化失败，MessageDigest不支持MD5Util");
-            Log.e(TAG, e.toString());
-        }
+//        try {
+//            messagedigest = MessageDigest.getInstance("MD5");
+//        } catch (NoSuchAlgorithmException e) {
+//            Log.d("SplashViewCreater","sea SplashViewCreater初始化失败，MessageDigest不支持MD5Util");
+//            Log.e(TAG, e.toString());
+//        }
     }
 
     /**
