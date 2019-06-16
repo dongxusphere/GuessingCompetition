@@ -85,7 +85,7 @@
                     android:layout_marginLeft="40dp"
                     android:singleLine="true"
                     android:maxLines="1"
-                    android:background="@drawable/corner_bg_yellow"
+                    android:background="@drawable/corner_bg_blue"
                     android:layout_marginRight="40dp"
                     android:visibility="visible"
                     android:text="积分商城" />
@@ -98,7 +98,7 @@
                     android:maxLines="1"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
-                    android:background="@drawable/corner_bg_yellow"
+                    android:background="@drawable/corner_bg_blue"
                     android:text="积分明细" />
             </LinearLayout>
             <ImageView
