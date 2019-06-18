@@ -123,10 +123,56 @@
                     android:textSize="15dp"
                     android:textColor="@color/red_btn_bg_pressed_color"/>
                 <RelativeLayout
+                    android:id="@+id/paihangbang"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:paddingLeft="10dp"
                     android:layout_marginTop="30dp"
+                    android:paddingRight="10dp">
+                    <ImageView
+                        android:id="@+id/iv_left_4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_format_list_numbered_black_24dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="排行榜"
+                        android:layout_centerVertical="true"
+                        android:textSize="20dp"
+                        android:layout_toRightOf="@+id/iv_left_4"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="#515151"/>
+
+                    <ImageView
+                        android:id="@+id/iv_right_4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_chevron_right_black_24dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_centerVertical="true"
+                        android:textSize="15dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@id/iv_right_4"
+                        android:textColor="#434343"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/gray_btn_bg_pressed_color"
+                        android:layout_alignParentBottom="true"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="10dp"
                     android:paddingRight="10dp">
                     <ImageView
                         android:id="@+id/iv_left"

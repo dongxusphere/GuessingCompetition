@@ -49,7 +49,7 @@ public class WeatherCardDialog extends Dialog {
                 iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已选择晴天卡 x1");
-                LocalData.getInstance().delTotalCount(1);
+//                LocalData.getInstance().delTotalCount(1);
 
             }
         });
@@ -60,7 +60,7 @@ public class WeatherCardDialog extends Dialog {
                 iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv3.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已选择雨天卡 x1");
-                LocalData.getInstance().delTotalCount(1);
+//                LocalData.getInstance().delTotalCount(1);
 
             }
         });
@@ -71,7 +71,7 @@ public class WeatherCardDialog extends Dialog {
                 iv2.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 iv1.setBackground(getContext().getDrawable(R.drawable.corner_bg));
                 desc.setText("已选择多云卡 x1");
-                LocalData.getInstance().delTotalCount(1);
+//                LocalData.getInstance().delTotalCount(1);
 
             }
         });

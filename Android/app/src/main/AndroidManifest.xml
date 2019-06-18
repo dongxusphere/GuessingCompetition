@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/desktop_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".TopActivity"></activity>
         <activity android:name=".CardsListActivity" />
         <activity
             android:name=".ScrollingActivity"
